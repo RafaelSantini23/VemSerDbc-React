@@ -47,7 +47,7 @@ function Form() {
           </div>
           <div>
             <label htmlFor="message">Sua Mensagem
-              <textarea type="message" placeholder="digite seu email" value={message} onChange={(e) => setMessage(e.target.value)} cols="30" rows="10" placeholder="Digite sua biografia" />
+              <textarea type="message" value={message} onChange={(e) => setMessage(e.target.value)} cols="30" rows="10" placeholder="Digite sua biografia" />
             </label>
           </div>
           <div>
