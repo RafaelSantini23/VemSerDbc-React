@@ -1,0 +1,27 @@
+.navFooter {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333;
+  height: 75px;
+  list-style-type: none;
+}
+
+.navFooter ul {
+  display: flex;
+}
+
+.navFooter ul li a {
+  margin: 0 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-shadow: black 8px 5px 10px;
+}
+
+.navFooter address {
+  margin: 0px 20px;
+  color: white;
+  text-shadow: black 8px 5px 10px;
+}

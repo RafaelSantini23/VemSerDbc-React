@@ -1,0 +1,21 @@
+.headerMenu {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.headerMenu li{
+  margin: 0px 10px;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: black 8px 5px 10px;
+  list-style-type: none;
+}
+
+.headerMenu a {
+  color: white;
+}
+
+.headerMenu li:hover a{
+  transition: .5s;
+  color: black;
+}

@@ -1,0 +1,16 @@
+
+.imgsCogsChild {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #CCC;
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: 2px 5px 5px black;
+  cursor: pointer;
+}
+
+.imgsCogsChild:hover p {
+  color: gold;
+  font-size: 20px;
+}
