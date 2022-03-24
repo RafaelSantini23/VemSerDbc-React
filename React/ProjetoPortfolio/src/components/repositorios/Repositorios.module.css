@@ -1,0 +1,19 @@
+.gitRepositories {
+  border: 1px solid black;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.gitRepositories h2 {
+  color: #DEDEDE;
+}
+.gitRepositories p {
+  font-size: 20px;
+  margin-top: 5px;
+  color: #DEDEDE;
+}
+
+.gitRepositories:last-child {
+  margin-bottom: 20px;
+}

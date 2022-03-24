@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import axios from 'axios';
 import { useEffect, useState } from 'react'
 import styles from './Terminal.module.css'
@@ -7,20 +7,23 @@ import Eclipse from '../eclipse/Eclipse';
   function Terminal() {
     const URL = 'https://api.github.com/users/RafaelSantini23';
     const [user, setUser] = useState({});
-    useEffect(() => {
-      async function getInformations() {
-        try {
-          const { data } = await axios.get(URL)
+    async function getInformations() {
+      try {
+        const { data } = await axios.get(URL)
 
-          setUser({ name: data.login, bio: data.bio, img: data.avatar_url, company: data.company, location:data.location })
-          
+        setUser({ name: data.login, bio: data.bio, img: data.avatar_url, company: data.company, location:data.location })
+        
 
-        } catch (error) {
-          console.log('Ocorreu um erro ao carregar os dados!!', error);
-        }
+      } catch (error) {
+        console.log('Ocorreu um erro ao carregar os dados!!', error);
       }
-      getInformations()
+    }
+    useLayoutEffect(() => {
+       getInformations()
     }, [])
+    // useEffect(() => {
+    //   getInformations()
+    // }, [])
 
 
     return (

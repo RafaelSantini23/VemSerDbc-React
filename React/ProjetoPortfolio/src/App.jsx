@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from
 'react-router-dom';
 import Header from './components/header/Header';
 import Perfil from './pages/perfil/Perfil';
-import Repo from './pages/repo/Repo';
+import Projetos from './pages/projetos/Projetos';
 import Contato from './pages/contato/Contato';
 
 
@@ -17,7 +17,7 @@ function App() {
     <Header />
       <Routes>
         <Route path='/' element={<Perfil />} />
-        <Route path='/repo' element={<Repo />} />
+        <Route path='/projetos' element={<Projetos />} />
         <Route path='/contato' element={<Contato />} />
       </Routes>
 

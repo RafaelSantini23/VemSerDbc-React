@@ -9,7 +9,7 @@ function Header() {
           <Link to='/'> <img width="50px" src={Logo} /> </Link> 
         <ul>
           <li>  <Link to='/'> Perfil </Link> </li>
-          <li>  <Link to='/repo'> Projetos </Link> </li>
+          <li>  <Link to='/projetos'> Projetos </Link> </li>
           <li>  <Link to='/contato'> Contato </Link> </li>
         </ul>
       </nav>
