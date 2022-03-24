@@ -1,0 +1,27 @@
+.eclipses {
+  display: flex;
+  margin-top: 10px;
+}
+.eclipses div {
+  display: flex;
+  margin: 0px 5px;
+}
+
+.eclipseDanger {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #FF5F56;
+}
+.eclipseYellow {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #FFBD2E;
+}
+.eclipseGreen {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #27C93F;
+}

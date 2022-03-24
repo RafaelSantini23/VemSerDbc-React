@@ -1,0 +1,46 @@
+
+.container {
+  max-width: 1200px;
+  margin: 150px auto;
+  background-color: #2f2c2c;
+  padding: 3px 40px;
+  border-radius: 15px 15px 0px 0px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+}
+.containerPerfil {
+  display: flex;
+  margin-top: 20px;
+  color: #DEDEDE;
+  font-size: 48px;
+
+}
+.biografia {
+  color: #959595;
+  font-size: 24px;
+  line-height: 30px;
+  margin-top: 25px;
+}
+
+.containerTexto {
+  display: flex;
+  flex-direction: column;
+  margin-right: 90px;
+  font-weight: 600;
+}
+
+.imgGit {
+  border-radius: 50%;
+  box-shadow: 0px 4px 4px 0px rgba(200, 6, 6, 0.25);
+
+}
+
+.locationGit {
+  width: 85%;
+  font-size: 14px;
+  color: #959595;
+  display: flex;
+  margin-top: 15px;
+  justify-content: space-between;
+}
+
