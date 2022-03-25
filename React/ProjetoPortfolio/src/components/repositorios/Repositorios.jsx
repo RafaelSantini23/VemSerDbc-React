@@ -10,6 +10,7 @@ function Repositorios() {
 
   const [projects, setProjects] = useState([]);
   const [load, setLoad] = useState(true)
+
   async function getRepos() {
     try {
       const { data } = await axios.get(URL)
@@ -24,8 +25,8 @@ function Repositorios() {
     Aos.init({duration: 2000})
     getRepos();
     
-    
   })
+  
   return (
     <div>
       {load && <Spinner />}

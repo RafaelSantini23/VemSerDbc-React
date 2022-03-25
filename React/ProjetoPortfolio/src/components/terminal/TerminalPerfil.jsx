@@ -10,6 +10,7 @@ function TerminalPerfil() {
   const URL = 'https://api.github.com/users/RafaelSantini23';
   const [user, setUser] = useState({});
   const [load, setLoad] = useState(true)
+  
   async function getInformations() {
     try {
       const { data } = await axios.get(URL)
