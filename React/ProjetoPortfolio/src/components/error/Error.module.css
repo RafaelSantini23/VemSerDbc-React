@@ -1,0 +1,14 @@
+.center {
+  margin: 50px auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.errorr {
+  font-size: 20px;
+  color: red;
+}

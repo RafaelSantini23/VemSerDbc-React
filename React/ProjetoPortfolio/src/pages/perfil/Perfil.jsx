@@ -1,13 +1,12 @@
 import React from 'react';
 import styles from './Perfil.module.css';
-import Terminal from '../../components/terminal/Terminal';
-import axios from 'axios';
+import TerminalPerfil from '../../components/terminal/TerminalPerfil';
 
 
 function Perfil(){
   return (
     <>
-      <Terminal />
+      <TerminalPerfil />
     </>
   )
 }
