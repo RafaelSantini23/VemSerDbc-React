@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { FormContext } from "../../context/FormContext";
+import styles from './ListEmployes.module.css'
 
 function ListEmployes() {
     const { alterEmploye, removeEmploye, list} = useContext(FormContext)
@@ -9,7 +10,7 @@ function ListEmployes() {
             {
                 list.length ? (
                     list.map(employe => (
-                        <div key={employe.id}>
+                        <div key={employe.id} className={styles.divForm}>
                             <h2>{employe.name}</h2>
                             <p>{employe.email}</p>
                             <p>{employe.profissao}</p>

@@ -1,38 +1,30 @@
 import {useContext} from 'react';
+import Input from '../components/inputs/Input';
 import ListEmployes from '../components/ListEmployes/ListEmployes';
 import { FormContext } from '../context/FormContext';
+import styles from './Principal.module.css';
 
 function Principal() {
-    const {name,setName,email,setEmail,profissao,setProfissao,addEmploye} = useContext(FormContext)
+    const { name, setName, email, setEmail, profissao, setProfissao, validateForm, list} = useContext(FormContext)
+    
 
     return (
-        <div>
-        <h1>Registre-se</h1>
+        <div >
 
-        <form onSubmit={addEmploye}>
-            <div>
-                <label>
-                    Digite o nome:
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-                </label>
-            </div>
-            <div>
-                <label>
-                    Digite o email:
-                    <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}  />
-                </label>
-            </div>
-            <div>
-                <label>
-                    Digite a profissão:
-                    <input type="text" value={profissao} onChange={(e) => setProfissao(e.target.value)} />
-                </label>
-            </div>
-            <input type="submit"/>
+        <form onSubmit={validateForm} className={styles.formRegister}>
+        <h1>Registre-se</h1>
+           <Input text={'Digite o nome:'} typeinpt="text"  value={name} placeholder={'Digite seu nome'} onChange={(e) => setName(e.target.value)}   />
+           <Input text={'Digite o email:'} typeinpt="text"  value={email} placeholder={'Digite seu email'} onChange={(e) => setEmail(e.target.value)}   />
+           <Input text={'Digite a profissão: '} typeinpt="text" value={profissao}  placeholder={'Digite sua profissão'} onChange={(e) => setProfissao(e.target.value)} />
+           <Input typeinpt="submit" value='Cadastrar' />
         </form>
-        <ListEmployes />
+        
+        <div>
+            
+        <ListEmployes /> 
+            </div>
     </div>
   )
 }
 
-export default Principal
+export default Principal;
