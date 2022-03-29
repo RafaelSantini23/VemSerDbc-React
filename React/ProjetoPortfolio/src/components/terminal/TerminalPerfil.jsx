@@ -1,39 +1,15 @@
-import React, { useLayoutEffect } from 'react'
-import axios from 'axios';
-import { useEffect, useState } from 'react'
 import styles from './Terminal.module.css'
 import Eclipse from '../eclipse/Eclipse';
-import Spinner from '../spinner/Spinner';
 import Error from '../error/Error';
 
-function TerminalPerfil() {
-  const URL = 'https://api.github.com/users/RafaelSantini23';
-  const [user, setUser] = useState({});
-  const [load, setLoad] = useState(true)
+function TerminalPerfil({data}) {
+
+  const { bio, company, location, login, avatar_url } = data
   
-  async function getInformations() {
-    try {
-      const { data } = await axios.get(URL)
-      setUser({ name: data.login, bio: data.bio, img: data.avatar_url, company: data.company, location: data.location })
-      setLoad(false)
-    } catch (error) {
-      console.log('Ocorreu um erro ao carregar os dados!!', error);
-    }
-  }
-  useEffect(() => {
-    getInformations()
-    return () => {
-      setUser({})
-    }
-  }, [])
-
-  const isEmpty = Object.keys(user).length
-
-
+  const isEmpty = Object.keys(data).length
 
   return (
     <div className={styles.containerTerminal}>
-      {load && <Spinner  /> }
     {
       isEmpty ? (
       <div className={styles.container}>
@@ -44,16 +20,16 @@ function TerminalPerfil() {
               Oi, meu nome é Rafael Santini, e trabalho como desenvolvedor WEB.
             </p>
             <p className={styles.biografia}>
-              {user.bio}
+              {bio}
             </p>
             <div className={styles.locationGit}>
-              <p> Empresa: {user.company} | </p>
-              <p> Local: {user.location} | </p>
-              <p> Github: {user.name}  </p>
+              <p> Empresa: {company} | </p>
+              <p> Local: {location} | </p>
+              <p> Github: {login}  </p>
             </div>
           </div>
           <figure>
-            <img className={styles.imgGit} src={user.img} alt="imagem de perfil" />
+            <img className={styles.imgGit} src={avatar_url} alt="imagem de perfil" />
           </figure>
         </div>
         <div>
