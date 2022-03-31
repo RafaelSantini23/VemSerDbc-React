@@ -6,10 +6,12 @@ import './App.css';
 import Header from './components/header/Header';
 import Home from './pages/Home';
 import Footer from './components/footer/Footer';
+import Address from './pages/Address';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <BrowserRouter>
       <AuthProvider>
         <Header />
@@ -17,6 +19,8 @@ function App() {
           <Route exact path='/login' element={<Login />}  />
           <Route path='/users' element={<Users />} />
           <Route path='/' element={<Home />} />
+          <Route path='/address' element={<Address />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
         <Footer />
       </AuthProvider>

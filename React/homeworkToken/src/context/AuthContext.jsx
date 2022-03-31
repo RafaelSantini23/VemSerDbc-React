@@ -1,5 +1,6 @@
 import { useState, createContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Loading from "../components/loading/LoadingGif";
 import api from '../api'
 
 export const AuthContext = createContext()
@@ -51,12 +52,12 @@ function AuthProvider({children}) {
 
     if(loading) {
         return (
-            <h1>Loading...</h1>
+            <Loading />
         )
     }
-
+    
     return (
-        <AuthContext.Provider value={{handleLogin, handleLogout, token, isLogado}}>
+        <AuthContext.Provider value={{handleLogin, handleLogout, token, isLogado, loading, setLoading}}>
             {children}
         </AuthContext.Provider>
     )

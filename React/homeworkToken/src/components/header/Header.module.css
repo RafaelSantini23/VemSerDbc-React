@@ -1,0 +1,29 @@
+header {
+    height: 80px;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.menu > ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu > ul > li {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 30px;
+    
+}
+
+.menu img {
+    margin-top: 5px;
+}
+
+.menu a {
+    text-decoration: none;
+}

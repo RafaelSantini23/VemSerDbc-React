@@ -10,9 +10,9 @@ export default function Header() {
   },[])
   
   return (
-    <div>
+    <header>
         <Menu />
-    </div>
+    </header>
   )
 }
 

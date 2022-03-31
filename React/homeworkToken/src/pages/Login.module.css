@@ -1,0 +1,22 @@
+
+.containerLogin {
+    margin: 310px auto;
+    height: 180px;
+
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login label {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.login button {
+    margin: 15px 0px;
+    width: 40%;
+}
