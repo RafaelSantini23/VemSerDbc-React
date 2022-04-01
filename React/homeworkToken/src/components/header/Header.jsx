@@ -1,6 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import Menu from './Menu';
+import NotFound from '../../pages/NotFound';
 
 export default function Header() {
   const { isLogado } = useContext(AuthContext);
@@ -10,9 +11,11 @@ export default function Header() {
   },[])
   
   return (
-    <header>
-        <Menu />
+    <>
+     <header>
+       <Menu />
     </header>
+    </>
   )
 }
 

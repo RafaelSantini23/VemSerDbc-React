@@ -1,7 +1,8 @@
 import { useState, createContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Loading from "../components/loading/LoadingGif";
-import api from '../api'
+import api from '../api';
+
 
 export const AuthContext = createContext()
 
@@ -20,7 +21,6 @@ function AuthProvider({children}) {
             api.defaults.headers.common['Authorization'] = data;
             navigation('/users');
             alert('Seja Bem Vindo');
-            
         } catch (error) {
             alert('Usuario não encontrado!');
             console.log('Ocorreu um erro', error);
@@ -55,6 +55,8 @@ function AuthProvider({children}) {
             <Loading />
         )
     }
+
+
     
     return (
         <AuthContext.Provider value={{handleLogin, handleLogout, token, isLogado, loading, setLoading}}>

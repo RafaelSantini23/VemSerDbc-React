@@ -1,0 +1,23 @@
+.userList {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    border: 1px solid;
+    width: 50%;
+}
+
+.userList button {
+    margin: 0px 10px;
+    width: 30%;
+    background-color: dimgray;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .7s ;
+}
+
+.userList button:hover {
+    background-color: darkgrey;
+    color: black;
+}

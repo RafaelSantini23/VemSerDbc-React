@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { Formik, Form, Field } from 'formik';
+import styles from './Address.module.css'
 import axios from 'axios';
 
 export default function Address() {
@@ -13,26 +14,28 @@ export default function Address() {
   const [estado, setEstado] = useState('');
   const [telefone, setTelefone] = useState('');
 
-  useEffect(() => {
-    isLogado();
-  })
-
-  const handleInputs = async () => {
+  
+  
+  
+  const searchInputs = async () => {
     try {
       const { data } = await axios.get(`https://viacep.com.br/ws/${cep}/json`);
-      console.log(data);
+      
       setRua(data.logradouro);
       setComplemento(data.complemento);
       setBairro(data.bairro);
       setCidade(data.localidade);
       setEstado(data.uf);
       setTelefone(data.ddd);
-      console.log(data.cep);
-
+      
       
     } catch (error) {
       console.log('Ocorreu um erro ao carregar as informações', error);
     }
+  }
+  
+  const handleInputs = async () => {
+    
     const validateInputs = rua && complemento && bairro && cidade && estado && telefone.length > 4;
     
     const objectCep = {
@@ -43,7 +46,8 @@ export default function Address() {
       uf: estado,
       ddd: telefone
     }
-
+    
+    
     
     if (validateInputs) {
       alert(JSON.stringify(objectCep,null,2));
@@ -55,26 +59,36 @@ export default function Address() {
       setBairro('');
       setEstado('');
       setTelefone('');
+      
     }
     else {
       alert('Digite os campos que faltam!');
     }
   }
 
+
+  
+  
+  useEffect(() => {
+    isLogado();
+  },[])
+
+  
+  
   const maskCEP = value => {
     return value.replace(/\D/g, "").replace(/^(\d{5})(\d{3})+?$/, "$1-$2");
   };
-
+  
   const maskPhone = value => {
     return value
-      .replace(/\D/g, "")
-      .replace(/(\d{2})(\d)/, "($1) $2")
-      .replace(/(\d{5})(\d{4})(\d)/, "$1-$2");
+    .replace(/\D/g, "")
+    .replace(/(\d{2})(\d)/, "($1) $2")
+    .replace(/(\d{5})(\d{4})(\d)/, "$1-$2");
   };
-
-
+  
+  
   return (
-    <div>
+    <div >
       <Formik
         initialValues={{
           cep: '',
@@ -87,29 +101,29 @@ export default function Address() {
         }}
         onSubmit={handleInputs}
       >
-        <Form>
+        <Form className={styles.containerAddress}>
           <label htmlFor="cep">Cep</label>
           <Field id="cep" value={cep} name="cep" onChange={(e) => setCep(maskCEP(e.target.value))} placeholder="Informe seu cep" />
-
-          <label htmlFor="rua">rua</label>
+          <button type='submit' onClick={searchInputs}>Buscar dados</button>
+          <label htmlFor="rua">Rua</label>
           <Field id="rua" value={rua} onChange={(e) => setRua(e.target.value)} name="rua" placeholder="Informe sua rua" />
 
-          <label htmlFor="complemento">complemento</label>
+          <label htmlFor="complemento">Complemento</label>
           <Field id="complemento" name="complemento" value={complemento} onChange={(e) => setComplemento(e.target.value)} placeholder="Informe seu complemento" />
 
-          <label htmlFor="bairro">bairro</label>
+          <label htmlFor="bairro">Bairro</label>
           <Field id="bairro" name="bairro" value={bairro} onChange={(e) => setBairro(e.target.value)} placeholder="Informe seu bairro" />
 
-          <label htmlFor="cidade">cidade</label>
+          <label htmlFor="cidade">Cidade</label>
           <Field id="cidade" name="cidade" value={cidade} onChange={(e) => setCidade(e.target.value)} placeholder="informe sua cidade" />
 
-          <label htmlFor="estado">estado</label>
+          <label htmlFor="estado">Estado</label>
           <Field id="estado" name="estado" value={estado} onChange={(e) => setEstado(e.target.value)} placeholder="informe seu estado" />
 
-          <label htmlFor="telefone">telefone</label>
+          <label htmlFor="telefone">Telefone</label>
           <Field id="telefone" name="telefone" value={maskPhone(telefone)} onChange={(e) => setTelefone(e.target.value)} placeholder="informe seu telefone" />
 
-          <button type="submit">Submit</button>
+          <button type="submit">Enviar</button>
         </Form>
 
       </Formik>

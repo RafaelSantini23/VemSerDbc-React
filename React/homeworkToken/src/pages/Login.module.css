@@ -1,8 +1,9 @@
 
 .containerLogin {
-    margin: 310px auto;
-    height: 180px;
-
+    margin: 246px auto;
+    /* height: 189px; */
+    border: 1px solid black;
+    width: 50%;
 }
 
 .login {
@@ -13,10 +14,26 @@
 .login label {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 80%;
+}
+
+.login label > input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .login button {
-    margin: 15px 0px;
-    width: 40%;
+  width: 80%;
+  background-color: dimgray;
+  color: white;
+  padding: 14px 20px;
+  margin: 15px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
