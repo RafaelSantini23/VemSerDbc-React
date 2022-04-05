@@ -1,6 +1,7 @@
-import { FC, createContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import api from "../api";
+import { FC, createContext, useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { LoginDTO } from "../model/LoginDTO";
 
 
@@ -12,18 +13,25 @@ const AuthProvider: FC<any> = ({children}) => {
     // const [token,setToken] = useState<string>()
     const navigate = useNavigate()
     const token = localStorage.getItem('token')
+    const location = useLocation()
 
     useEffect(() => {
        if(!token) {
-         navigate('/login')
+         navigate('/login');
        }
     },[]);
+
+
 
     useEffect(() => {
         if(token) {
             api.defaults.headers.common['Authorization'] = token;
-            console.log('Entrou aqui');
         }
+        
+        if(location.pathname === '/login' && token) {
+            navigate('/')
+        }
+
     }, []);
 
     const handleLogin =  async (user: LoginDTO) => {
