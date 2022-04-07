@@ -1,61 +1,63 @@
 import api from "../api";
-import { FC, createContext, useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { FC, createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LoginDTO } from "../model/LoginDTO";
 
 
-export const AuthContext = createContext({});
 
- 
+export const AuthContext = createContext({});
 
 const AuthProvider: FC<any> = ({children}) => {
     // const [token,setToken] = useState<string>()
     const navigate = useNavigate()
-    const token = localStorage.getItem('token')
-    const location = useLocation()
+
+    const [loading, setLoading] = useState(true);
+    const [isToken, setIsToken] = useState(false);
+
 
     useEffect(() => {
-       if(!token) {
-         navigate('/login');
+       const token = localStorage.getItem('token');
+       if(token) {
+           api.defaults.headers.common['authorization'] = token;
+           setIsToken(true)
+       } else {
+           navigate('/login')
        }
+
+       setLoading(false)
     },[]);
-
-
-
-    useEffect(() => {
-        if(token) {
-            api.defaults.headers.common['Authorization'] = token;
-        }
-        
-        if(location.pathname === '/login' && token) {
-            navigate('/')
-        }
-
-    }, []);
+    
+      
 
     const handleLogin =  async (user: LoginDTO) => {
         
         try {
             const {data} = await api.post('/auth', user);
-            
-            localStorage.setItem('token', data)
-            
-                        
-            navigate('/')
+            localStorage.setItem('token', data);
+            setIsToken(true)
+            setLoading(false)
+            api.defaults.headers.common['authorization'] = data           
+            navigate('/');
 
         } catch (error) {
             console.log(error);
         }
     }
 
+    
     const handleLogout = () => {
         localStorage.removeItem('token')
+        setIsToken(false)
         navigate('/login')
     }
 
+    if(loading) {
+        return ( <h1>Loading...</h1> )
+    }
+
+
     return (
-        <AuthContext.Provider value={{handleLogin, handleLogout}}>
+        <AuthContext.Provider value={{handleLogin, handleLogout, setLoading, isToken}}>
             {children}
         </AuthContext.Provider>
     )

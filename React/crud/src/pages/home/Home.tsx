@@ -6,7 +6,7 @@ import {
 
 function Home() {
   return (
-    <div>
+    
         <Container>
             <Card>
               <CardTitle>Users</CardTitle>
@@ -15,7 +15,7 @@ function Home() {
               <CardTitle>Address</CardTitle>
             </Card>
         </Container>
-    </div>
+   
   )
 }
 
