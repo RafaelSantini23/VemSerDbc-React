@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const ContainerUsers = styled.div`
-    height: 100%;
+    
     width: 100%;
-    background-color: #E5E5E5;
+    
 `
 
 export const TitleUsers =  styled.h1`
@@ -13,8 +13,10 @@ export const TitleUsers =  styled.h1`
 export const TableUsers =  styled.table`
     text-align: center;
     background: #FFFFFF;
+    border-spacing: 0;
     margin: 0 auto;
-    width: 1122px;
+    box-sizing: border-box;
+    width: 1250px;
     border-radius: 8px;
     th {
         padding: 20px 0px;
@@ -22,9 +24,9 @@ export const TableUsers =  styled.table`
     }
 
     td {
+        width: 75px;
+        
         border-bottom: 1px solid #DFE0EB;
         padding: 10px;
     }
-    
-
 `

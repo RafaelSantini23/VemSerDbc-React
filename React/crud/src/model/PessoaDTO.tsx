@@ -10,3 +10,4 @@ export interface PessoaDTO {
         nome: string,
     }[];
 }
+

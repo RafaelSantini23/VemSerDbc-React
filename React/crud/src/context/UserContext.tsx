@@ -1,11 +1,11 @@
 import api from "../api";
-import { FC, createContext, useState } from "react";
+import { FC, createContext, useState, ReactNode } from "react";
 import { PessoaDTO } from "../model/PessoaDTO";
 
 
 export const UserContext = createContext({});
 
-const UserProvider: FC<any> = ({children}) => {
+const UserProvider: FC<ReactNode> = ({children}) => {
 
     const [loading, setLoading] = useState(true);
     const [person, setPerson] = useState<PessoaDTO["person"]>([]);

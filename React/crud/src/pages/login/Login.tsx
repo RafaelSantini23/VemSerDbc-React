@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from 'react'
 import { Formik, Field, Form, FormikHelpers } from 'formik'
 import { LoginDTO } from '../../model/LoginDTO'
 import { useNavigate } from 'react-router-dom'
-import Logo from '../../imgs/dbc.png'
 import {
     SignUp,
     DivForm,
@@ -20,6 +19,7 @@ import {
 } from './Login.styles'
 import { AiFillEyeInvisible, AiFillEye  } from 'react-icons/ai'
 import { AuthContext } from '../../context/AuthContext'
+import Logo from '../../imgs/dbc.png'
 
 function Login() {
     const { handleLogin } = useContext<any>(AuthContext);
@@ -33,9 +33,6 @@ function Login() {
             navigate('/')
         }
     }, [])
-
-    
-
 
     return (
     <ContainerForm>        
