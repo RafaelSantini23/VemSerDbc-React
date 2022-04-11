@@ -4,25 +4,22 @@ import { LoginDTO } from '../../model/LoginDTO'
 import { useNavigate } from 'react-router-dom'
 import {
     SignUp,
-    DivForm,
     TitleLogin,
     ContainerLogin,
-    inputStyle,
-    ButtonForm,
     SubTitle,
-    InfoForm,
-    LabelStyle,
+    InfoLogin,
     ContainerLogo,
     FormStyle,
     ChangePass,
-    ContainerForm
 } from './Login.styles'
+import { ButtonForm, DivForm, InputStyle, LabelStyle, ContainerForm } from '../../components/formStyles/Form.styles'
 import { AiFillEyeInvisible, AiFillEye  } from 'react-icons/ai'
 import { AuthContext } from '../../context/AuthContext'
 import Logo from '../../imgs/dbc.png'
+import Loader from '../../components/Loader/Loader'
 
 function Login() {
-    const { handleLogin } = useContext<any>(AuthContext);
+    const { handleLogin, loading } = useContext<any>(AuthContext);
     const [pass, setPass] = useState(true);
     
     const navigate = useNavigate();
@@ -33,17 +30,22 @@ function Login() {
             navigate('/')
         }
     }, [])
-
     return (
-    <ContainerForm>        
+    <ContainerForm 
+        width='100vw' 
+        height='100vh' 
+        color='#363740'
+        flex='flex'
+        column='column'
+    >        
         <ContainerLogin>
 
             <ContainerLogo> <img src={Logo} width={'48px'} alt="Imagem do logo" /> </ContainerLogo>
             <TitleLogin> Digital Business Company </TitleLogin>
 
             <SubTitle> Log In to DBC </SubTitle>
-            <InfoForm> Enter your email and password below
-            </InfoForm>
+            <InfoLogin> Enter your email and password below
+            </InfoLogin>
 
             <Formik
                 initialValues={{
@@ -62,19 +64,20 @@ function Login() {
                 <Form>
                     <DivForm>
                         <LabelStyle htmlFor='senha'>Usuário</LabelStyle>
-                        <Field as={inputStyle} name="usuario" id="usuario" placeholder="Digite o nome do usuário" />
+                        <Field width='316px' as={InputStyle} name="usuario" id="usuario" placeholder="Digite o nome do usuário" />
                     </DivForm>
                     <DivForm>
                         <LabelStyle htmlFor='senha'>Password</LabelStyle>
-                        <Field as={inputStyle} name="senha" id="senha" type={pass ? 'password' : 'text'} placeholder="Digite a sua senha" />
+                        <Field width='316px' as={InputStyle} name="senha" id="senha" type={pass ? 'password' : 'text'} placeholder="Digite a sua senha" />
                         <ChangePass> {pass ? <AiFillEyeInvisible onClick={() => setPass(false)} /> : <AiFillEye onClick={() => setPass(true)} />}  </ChangePass>
                     </DivForm>
-                    <ButtonForm type='submit'>Log in</ButtonForm>
+                    <ButtonForm width='316px' type='submit'>Log in  </ButtonForm>
                 </Form>            
             <SignUp> Don’t have an account? <a href="#">Sign Up</a> </SignUp>
             </FormStyle>    
             </Formik>
         </ContainerLogin>
+        
     </ContainerForm>
     )
 }

@@ -14,39 +14,6 @@ export const TitleLogin = styled.h1`
     text-align: center;
 `;
 
-export const inputStyle = styled.input`
-    width: 316px;
-    height: 42px;
-    border-radius: 8px;
-    background: #FCFDFE;
-    border: 1px solid #F0F1F7;
-    outline: none;
-`
-
-export const DivForm = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-top: 24px;
-    position: relative;
-`;
-
-export const ButtonForm = styled.button`
-    width: 316px;
-    height: 48px;
-    border-radius: 8px;
-    background: #3751FF;
-    border: 0;
-    color: white;
-    margin-top: 24px;
-    box-shadow: 0px 4px 12px rgba(55, 81, 255, 0.24);
-    border-radius: 8px;
-    cursor: pointer;
-    transition: .5s;
-    :hover {
-        background-color: gray;
-    }
-`
-
 export const ContainerLogo = styled.div`
     display: flex;
     justify-content: center;
@@ -61,24 +28,11 @@ export const SubTitle = styled.h1`
     text-align: center;
 `
 
-export const InfoForm = styled.p`
+export const InfoLogin = styled.p`
     font-size: 14px;
     color: #9FA2B4;
     margin-top: 12px;
     text-align: center;
-`
-
-export const ContainerForm = styled.div`
-      width: 100vw;
-      height: 100vh;
-      background-color: #363740;
-      display: flex;
-      flex-direction: column;
-`
-
-export const LabelStyle = styled.label`
-    color: #9FA2B4;
-    text-transform: uppercase;
 `
 
 export const FormStyle = styled.div`

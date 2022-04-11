@@ -2,17 +2,20 @@ import api from "../api";
 import { FC, ReactNode, createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LoginDTO } from "../model/LoginDTO";
+import Loader from "../components/Loader/Loader";
+import Error from "../components/Error/Error";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 
 
 export const AuthContext = createContext({});
 
 const AuthProvider: FC<ReactNode> = ({children}) => {
-    // const [token,setToken] = useState<string>()
     const navigate = useNavigate()
 
     const [loading, setLoading] = useState(true);
     const [isToken, setIsToken] = useState(false);
+    const [error, setError] = useState(false);
 
 
     useEffect(() => {
@@ -41,6 +44,8 @@ const AuthProvider: FC<ReactNode> = ({children}) => {
 
         } catch (error) {
             console.log(error);
+            Notify.failure('Usuário ou senha inválidos');
+            setError(true)
         }
     }
 
@@ -52,8 +57,10 @@ const AuthProvider: FC<ReactNode> = ({children}) => {
     }
 
     if(loading) {
-        return ( <h1>Loading...</h1> )
+        return ( <Loader /> )
     }
+
+    
 
 
     return (

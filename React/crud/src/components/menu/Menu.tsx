@@ -3,7 +3,9 @@ import {Link,useNavigate} from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import Logo from '../Logo';
 import { ItemMenu,
-      ButtonHeader        
+      ButtonHeader,
+      Navbar,
+            
 } from './Menu.styles';
 
 
@@ -16,8 +18,7 @@ function Menu() {
   const token = localStorage.getItem('token');
 
   return (
-    <div>
-        {token ? 
+        <Navbar>
           <ul>
             <Logo />
             <Link to={'/'}> <ItemMenu> Home </ItemMenu> </Link>
@@ -25,13 +26,7 @@ function Menu() {
             <Link to={'/address'}><ItemMenu>  Address </ItemMenu> </Link>
             <ButtonHeader onClick={() => handleLogout()}>Logout</ButtonHeader> 
           </ul>
-          :
-          <>
-          <Logo />
-          <ItemMenu>  <Link to={'/Login'}>Login</Link> </ItemMenu>  
-          </>
-        }
-    </div>
+          </Navbar>
   )
 }
 

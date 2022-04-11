@@ -9,6 +9,7 @@ export const ItemMenu = styled.li`
     position: relative;
     cursor: pointer;
     
+    
     :hover {
         background: rgb(159, 162, 180, 0.8);
         
@@ -40,4 +41,11 @@ export const ButtonHeader = styled.button`
         background-color: gray;
     }
     
+`
+
+export const Navbar = styled.nav`
+    width: 20%;
+    position: fixed;
+    top: 0;
+    left: 0;
 `
