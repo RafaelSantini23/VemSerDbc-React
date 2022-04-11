@@ -17,7 +17,6 @@ const AddressProvider: FC<ReactNode> = ({children}) => {
             const { data } = await api.get('/endereco');
             console.log(data);
             setLoadingAddress(false)
-            console.log(loadingAddress);
             setAddress(data)
             setErrorAddress(false)
         } catch (error) {

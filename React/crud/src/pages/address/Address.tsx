@@ -83,7 +83,6 @@ function Address() {
               const { data } = await api.delete(`/endereco/${id}`)
               console.log(data);
               Notify.success('Endereço excluído com sucesso!');
-              console.log(data.status);
               getListAddress()
             }
           },
@@ -391,9 +390,6 @@ const updateAddress = async (values: EnderecoDTO) => {
               ))}
             </tbody>
           </TableStyle> </> ) : <Error widthImg='420px' /> }
-          
-         
-         
         </Container>
       </AddressDiv>
     </>

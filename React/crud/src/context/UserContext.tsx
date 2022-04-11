@@ -18,7 +18,6 @@ const UserProvider: FC<ReactNode> = ({children}) => {
         try {
             const {data} = await api.get('/pessoa');
             setPerson(data)
-            console.log(person);
             setLoadingUsers(false)
             
         } catch (error) {

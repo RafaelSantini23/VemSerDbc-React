@@ -16,7 +16,6 @@ import { ButtonForm, DivForm, InputStyle, LabelStyle, ContainerForm } from '../.
 import { AiFillEyeInvisible, AiFillEye  } from 'react-icons/ai'
 import { AuthContext } from '../../context/AuthContext'
 import Logo from '../../imgs/dbc.png'
-import Loader from '../../components/Loader/Loader'
 
 function Login() {
     const { handleLogin, loading } = useContext<any>(AuthContext);
